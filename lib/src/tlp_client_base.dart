@@ -9,7 +9,6 @@ import 'package:tlp_client/src/utils/encryption.dart';
 import 'package:tlp_client/tlp_client.dart';
 
 import 'service/websocket_client.dart';
-import 'utils/fingerprint.dart';
 
 class TlpClient {
   final String _websocketUrl = "ws://localhost:8000/ws/client";
