@@ -156,7 +156,7 @@ void main() async {
     print("Received: $message");
   });
 
-  final t = BigInt.parse("123456789");
+  final t = BigInt.from(123456789);
   client.sendTlpMessage(t);
 
   // Stop the client after some time
