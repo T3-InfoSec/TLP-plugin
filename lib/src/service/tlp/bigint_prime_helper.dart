@@ -19,7 +19,7 @@ BigInt randomPrimeBigInt(int bits, {Random? random}) {
 }
 
 BigInt randomBigInt(int bits, {BigInt? max, Random? random}) {
-  random ??= Random(DateTime.now().millisecondsSinceEpoch);
+  random ??= Random.secure();
 
   if (max != null) {
     if (max.bitLength != bits) {
