@@ -4,7 +4,6 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:tlp_client/src/model/messagetype.dart';
-import 'package:tlp_client/src/service/tlp/tlp.dart';
 import 'package:tlp_client/src/utils/encryption.dart';
 import 'package:tlp_client/tlp_client.dart';
 
@@ -29,7 +28,8 @@ class TlpClient {
 
   /// Initializes the client asynchronously.
   Future<void> initialize() async {
-    _clientId = await SystemFingerprint.generateFingerprint();
+    //
+    _clientId = '_temporal_client_id';
     _client = WebSocketClient(_websocketUrl, _clientId);
   }
 
@@ -39,8 +39,7 @@ class TlpClient {
 
     // Send periodic pings
     const pingInterval = Duration(minutes: 5);
-    const pingIntervalDebug = Duration(seconds: 30);
-    _pingTimer = Timer.periodic(pingIntervalDebug, (_) {
+    _pingTimer = Timer.periodic(pingInterval, (_) {
       _client.sendPing();
     });
   }
